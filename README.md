@@ -2,16 +2,12 @@
 
 This repository contains a Python script to extract and visualize **positive and negative force–drift cycles** from cyclic shear-compression test data of stone masonry walls. The output highlights hysteresis behavior and structural envelope response, essential for evaluating seismic performance.
 
----
-
 ## Sample Use Case: Figure Reproduction
 
 This script generates **Figure 04** from the associated analysis:
 
 > **Figure 04. Force–Drift relationship highlighting extracted positive and negative cycles from experimental data.**
 > The blue curve represents the complete hysteresis loop. Black and red lines represent extracted envelope curves for positive and negative cycles, respectively.
-
----
 
 ## Reproducibility Checklist
 
@@ -49,7 +45,6 @@ A2_Civil_608/
 └── LICENSE                  # License file
 ```
 
----
 
 ## Running the Script
 
@@ -65,7 +60,6 @@ python Compute_envelope.py
    * A figure: `envelope_test.png` in `output_data/`
    * A CSV file: `envelope_test.csv` containing combined positive/negative cycles
 
----
 
 ## Functionality Overview
 
@@ -77,30 +71,10 @@ The script performs the following:
 * Plots hysteresis loops with envelope curves
 * Exports cleaned and ordered data to CSV
 
----
-
-## Code Quality & Documentation
-
-* Written in **Python 3.10**.
-* Organized with modular peak extraction logic.
-* Inline comments clarify each computation step.
-* Figures are labeled with appropriate units and colorblind-safe contrasts.
-* Output figure titles, axes, and legends are tailored for clarity and academic presentation.
-
----
-
-## Figure Quality Highlights
-
-* **Clarity**: Color-coded cycles improve visual interpretability.
-* **Graphical Integrity**: No axis truncation; units and labels preserved.
-* **Readability**: Font sizes, line styles, and legends meet publication standards.
-* **Audience Fit**: Designed for researchers, engineers, and students in structural and seismic engineering.
-
----
 
 ## License
 
 This project is licensed under the **MIT License**. See the `LICENSE` file for details.
 
 ## Contact
-For any queries, please contact: mati.shah@tuni.fi
+For any queries, please contact: mati.shah@epfl.ch
