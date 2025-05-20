@@ -1,3 +1,29 @@
+"""
+Script: Compute_envelope.py
+Author: Mati Ullah Shah
+Course: CIVIL_608 - Research Skills in the Open Science Era
+Assignment: 02
+
+Description:
+This script processes cyclic shear-compression test data of stone masonry walls to:
+    - Read displacement, force, and drift data from a CSV file.
+    - Detect local maxima and minima to identify force–drift cycles.
+    - Extract positive and negative envelope cycles using peak detection.
+    - Generate a hysteresis plot with extracted cycles highlighted.
+    - Export cleaned envelope data into a new CSV file and save the output figure.
+
+Dependencies:
+    - pandas
+    - numpy
+    - matplotlib
+    - scipy
+    - os
+
+Usage:
+Ensure the input CSV is located in the specified input folder and update file paths as necessary.
+Run the script via terminal or your IDE:
+    python Compute_envelope.py
+"""
 
 import pandas as pd
 import numpy as np
@@ -5,7 +31,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 import os
 
-# Define paths
+# Add directory paths 
 input_folder = "..\Input_data"
 output_folder = "..\A2\Output_data"
 input_file_name = "Sample_test.csv"
@@ -14,6 +40,7 @@ input_file_path = os.path.join(input_folder, input_file_name)
 # Extract file ID for naming
 file_id = input_file_name.split("_", 1)[-1].split(".")[0]
 
+# Threshold value between two cycles
 thre = 0.00
 
 # Read the first 4 lines as metadata (optional)
@@ -110,7 +137,7 @@ if len(local_minima) >= 2:
             ref_neg_index = curr_peak_index
             ref_neg_drift = curr_peak_drift
 
-# Remaining data
+# Remaining data, between two consecutive peaks
 remaining_data = df_clean.iloc[max(index_max[-1] if len(index_max) > 0 else 0, 
                                    index_min[-1] if len(index_min) > 0 else 0) + 1:]
 if not remaining_data.empty:
